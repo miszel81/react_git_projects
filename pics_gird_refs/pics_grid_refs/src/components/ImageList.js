@@ -1,10 +1,12 @@
+import './ImageList.css';
 import React from 'react';
+import ImageItem from './ImageItem';
 
 const ImageList = ({ images }) => {
-  const imagesToRender = images.map(({ id, urls, alt_description }) => {
-    return <img src={urls.regular} alt={alt_description} key={id} />;
+  const imagesToRender = images.map((image) => {
+    return <ImageItem key={image.id} image={image} />;
   });
-  return <div>{imagesToRender}</div>;
+  return <div className="image-list">{imagesToRender}</div>;
 };
 
 export default ImageList;
